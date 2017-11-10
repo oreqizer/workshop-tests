@@ -2,13 +2,9 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import Todo from '../';
+import WrappedTodo from '../';
 
-const todo = {
-  id: '1234',
-  text: 'kek',
-  complete: false,
-};
+const Todo = WrappedTodo.WrappedComponent;
 
 describe('#Todo/index', () => {
   // TODO

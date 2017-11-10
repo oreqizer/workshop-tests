@@ -9,9 +9,7 @@ import todosReducer from './scenes/Todo/services';
 import todosEpic from './scenes/Todo/services/epics';
 import registerServiceWorker from './browser/registerServiceWorker';
 
-const epic = combineEpics(
-  todosEpic,
-);
+const epic = combineEpics(todosEpic);
 
 const epicMw = createEpicMiddleware(epic);
 

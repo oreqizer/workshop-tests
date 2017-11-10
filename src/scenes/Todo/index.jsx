@@ -7,6 +7,7 @@ import TodoComponent from './components/Todo';
 import type { Todo } from '../../data/Todo';
 import * as selectors from './services';
 import * as actions from './services/actions';
+import log from './services/log';
 
 const Container = styled.div`
   width: 100%;
@@ -62,7 +63,10 @@ class TodoContainer extends React.Component<Props, State> {
   }
 
   handleAdd() {
-    this.props.createTodo(this.state.text);
+    const { text } = this.state;
+
+    log('Added new todo with text', text);
+    this.props.createTodo(text);
     this.setState({ text: '' });
   }
 
