@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Todo/index snapshot complete 1`] = `
+<styled.div>
+  <span>
+    kek
+  </span>
+  <styled.button
+    data-test="btn"
+    onClick={[Function]}
+  >
+    DELETE
+  </styled.button>
+  <styled.div>
+    complete
+  </styled.div>
+</styled.div>
+`;
+
+exports[`#Todo/index snapshot not complete 1`] = `
+<TodoComponent
+  onDelete={[Function]}
+  todo={
+    Object {
+      "complete": false,
+      "id": "1234",
+      "text": "kek",
+    }
+  }
+/>
+`;

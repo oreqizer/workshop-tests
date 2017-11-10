@@ -6,13 +6,13 @@ import type { Todo } from '../../../../data/Todo';
 
 const Container = styled.div`
   border: 1px solid white;
-  height: 65px;
+  height: 650px;
   width: 200px;
   margin: 5px;
   color: white;
 `;
 
-const Button = styled.div`
+const Button = styled.button`
   background: red;
   
   &:hover {
@@ -48,7 +48,7 @@ class TodoComponent extends React.PureComponent<Props> {
         <span>
           {todo.text}
         </span>
-        <Button onClick={() => this.handleDelete()}>
+        <Button data-test="btn" onClick={() => this.handleDelete()}>
           DELETE
         </Button>
         <Complete>

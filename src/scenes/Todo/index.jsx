@@ -33,6 +33,8 @@ type Props = {
   getTodos: typeof actions.getTodos,
   createTodo: typeof actions.createTodo,
   deleteTodo: typeof actions.deleteTodo,
+  // DI
+  log: typeof log,
 }
 
 type State = {
@@ -40,13 +42,15 @@ type State = {
 }
 
 class TodoContainer extends React.Component<Props, State> {
+  static defaultProps = {
+    log,
+  };
+
   constructor(props: Props) {
     super(props);
 
     this.state = { text: '' };
   }
-
-  state: State;
 
   componentDidMount() {
     this.props.getTodos();
@@ -59,18 +63,19 @@ class TodoContainer extends React.Component<Props, State> {
   handleTextKey(ev) {
     if (ev.key === 'Enter') {
       this.handleAdd();
+    } else {
+      // NOT COVERED
     }
   }
 
   handleAdd() {
+    const { log, createTodo } = this.props;
     const { text } = this.state;
 
     log('Added new todo with text', text);
-    this.props.createTodo(text);
+    createTodo(text);
     this.setState({ text: '' });
   }
-
-  props: Props;
 
   render() {
     const { count, todos, deleteTodo } = this.props;
