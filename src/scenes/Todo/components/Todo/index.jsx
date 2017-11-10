@@ -6,7 +6,7 @@ import type { Todo } from '../../../../data/Todo';
 
 const Container = styled.div`
   border: 1px solid white;
-  height: 40px;
+  height: 65px;
   width: 200px;
   margin: 5px;
   color: white;
@@ -18,6 +18,12 @@ const Button = styled.div`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const Complete = styled.div`
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
 `;
 
 type Props = {
@@ -35,16 +41,19 @@ class TodoComponent extends React.PureComponent<Props> {
   }
 
   render() {
-    const { props } = this;
+    const { todo } = this.props;
 
     return (
       <Container>
         <span>
-          {props.todo.text}
+          {todo.text}
         </span>
         <Button onClick={() => this.handleDelete()}>
           DELETE
         </Button>
+        <Complete>
+          {todo.complete ? 'complete' : 'not complete'}
+        </Complete>
       </Container>
     );
   }

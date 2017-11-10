@@ -1,3 +1,36 @@
+# Notes
+
+Here's some stuff I want to cover.
+
+## Motivation
+
+* speed of refactoring
+* speed of CI
+* speed of releasing
+* cover edge cases
+* robust building blocks
+
+## Dumb
+
+Make meaningful snapshots
+* check if props/rendered components are valid
+* test all branches
+
+Check callbacks
+
+## Containers
+
+Mock side effects via
+* jest mocks
+* dependency injection via default props
+
+Test unwrapped components first
+* supply props manually
+
+Test callbacks & lifecycle functions
+
+# Original
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

@@ -6,9 +6,11 @@ export function getTodos(): Promise<Todo[]> {
     setTimeout(() => resolve([{
       id: '1234',
       text: 'kek',
+      complete: false,
     }, {
       id: '12345',
       text: 'bur',
+      complete: true,
     }]), 250);
   });
 }
