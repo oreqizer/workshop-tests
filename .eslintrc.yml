@@ -1,0 +1,8 @@
+parser: babel-eslint
+extends:
+  - airbnb
+  - plugin:flowtype/recommended
+plugins:
+  - flowtype
+rules:
+  jsx-a11y/href-no-hash: off
