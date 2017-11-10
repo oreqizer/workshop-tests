@@ -1,12 +1,12 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 import type { Todo } from '../../../../data/Todo';
 
 const Container = styled.div`
   border: 1px solid white;
-  height: 100px;
+  height: 40px;
   width: 200px;
   margin: 5px;
   color: white;
@@ -14,6 +14,10 @@ const Container = styled.div`
 
 const Button = styled.div`
   background: red;
+  
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 type Props = {

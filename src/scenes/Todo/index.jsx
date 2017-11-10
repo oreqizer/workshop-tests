@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
@@ -55,6 +55,12 @@ class TodoContainer extends React.Component<Props, State> {
     this.setState({ text: ev.target.value });
   }
 
+  handleTextKey(ev) {
+    if (ev.key === 'Enter') {
+      this.handleAdd();
+    }
+  }
+
   handleAdd() {
     this.props.createTodo(this.state.text);
     this.setState({ text: '' });
@@ -63,29 +69,30 @@ class TodoContainer extends React.Component<Props, State> {
   props: Props;
 
   render() {
-    const { props } = this;
+    const { count, todos, deleteTodo } = this.props;
 
     return (
       <Container>
         <Count>
-          {props.count} Todos
+          {count} Todos
         </Count>
-        {props.todos.map(todo => (
-          <TodoComponent
-            key={todo.id}
-            todo={todo}
-            onDelete={props.deleteTodo}
-          />
-        ))}
         <Input
           id="todo"
           value={this.state.text}
+          onKeyDown={ev => this.handleTextKey(ev)}
           onChange={ev => this.handleTextChange(ev)}
           type="text"
         />
         <AddButton onClick={() => this.handleAdd()}>
           ADD
         </AddButton>
+        {todos.map(todo => (
+          <TodoComponent
+            key={todo.id}
+            todo={todo}
+            onDelete={deleteTodo}
+          />
+        ))}
       </Container>
     );
   }
